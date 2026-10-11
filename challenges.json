@@ -1,0 +1,498 @@
+[
+  {
+    "Nummer": 1,
+    "Name": "Wordle",
+    "Explanation": "Vinn wordle hard mode (Alle guesses må være lovlige, ikke lov å søke opp) https://wordleunlimited.org/\nEt forsøk",
+    "Type": "Van",
+    "Coins": "15",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 2,
+    "Name": "Wordle på norsk",
+    "Explanation": "Vinn wordle på norsk. Det er 3 ulike modus: 4,5 eller 6 bokstaver. Velg hvilken dere vil ta. Igjen hard mode, ikke lov å søke opp og alle guesses må være lovlige.\nhttps://www.wordle.lol/unlimited\nEt forsøk",
+    "Type": "Van",
+    "Coins": "15",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 3,
+    "Name": "Fibble",
+    "Explanation": "Vinn Fibble! Wordle spillet hvor hver tilbakemelding gir feilinformasjon på nøyaktig en av bokstavene - https://fibble.xyz/\nEt forsøk",
+    "Type": "Van",
+    "Coins": "25",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 4,
+    "Name": "Globle",
+    "Explanation": "Vinn Globle på 8 eller færre guesses https://globleunlimited.com/\nEt forsøk",
+    "Type": "Stjel",
+    "Coins": "25%",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 5,
+    "Name": "Chartle",
+    "Explanation": "Vinn Chartle. Hvis du allerede har spilt idag, spill en random annen dag du ikke har spilt før. https://chartle.cc/\nEt forsøk",
+    "Type": "Mult",
+    "Coins": "2x",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 6,
+    "Name": "Linxicon",
+    "Explanation": "Vinn Linxicon. Altså lag en vei fra et ord til et annet ord, med ord som er “nærme” hverandre https://linxicon.com/game/practice\nEt forsøk",
+    "Type": "Van",
+    "Coins": "25",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 7,
+    "Name": "Craft connections",
+    "Explanation": "Vinn Craftconnections! Spill dagens, om allerede gjort, spill en tillfeldig dag\nhttps://craftconnections.net/archive.\nEt forsøk.",
+    "Type": "Van",
+    "Coins": "50",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 8,
+    "Name": "Secret suitcase",
+    "Explanation": "Spill “secret suitcase” på “social gamebox”. 2 minutter. Før spillet begynner blir dere enige om hvor mange prompts dere skal greie.\n\nSpillets gang er at man får oppgitt en kategori, og tre “eksempelord”. Formidleren vil at gjetteren skal gjette kategorien ved å ramse opp ord som er innenfor den kategorien, for eksempel de tre eksempel-ordene. Det er ikke lov å bruke ord fra kategori-navnet. Feks om kategorien er “gule ting” ikke si “gul flamingo”. Gjetteren gjetter fortløpende og når de gjetter kategorien går man videre. Det er lov å skippe prompts.\n\nDet er lov å øve.",
+    "Type": "CYS",
+    "Coins": "5*X",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 9,
+    "Name": "Taboo",
+    "Explanation": "Spill “taboo” på appen “social gamebox”. 2 minutter. Før spillet begynner blir dere enige om hvor mange prompts dere skal greie. Når spillet begynner får dere opp et ord på toppen, og fem under som ligner.\n\nFormidleren skal forklare ordet på toppen, uten å si noen av de 5 ordene på bunnen, eller ord som inneholder de ordene. Gjetteren prøver å gjette ordet på toppen. Det er lov å skippe prompts.\n\nDet er lov å øve.",
+    "Type": "CYS",
+    "Coins": "5*X",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 10,
+    "Name": "Reverse taboo",
+    "Explanation": "Spill “taboo” på appen “social gamebox”, men denne gangen annerledes.  2 minutter. Før spillet begynner blir dere enige om hvor mange prompts dere skal greie. Når spillet begynner får dere opp et ord på toppen, og fem under som ligner.\n\nDenne gangen skal personen som gjette ordet på toppen, og den andre personen får kun si ordene på bunnen. Men de får si de i ulike tonefall og i hvilken rekkefølge de vil. Det er lov å skippe prompts.\n\nDet er lov å øve",
+    "Type": "CYS",
+    "Coins": "10*X",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 11,
+    "Name": "Ten triangle",
+    "Explanation": "Spill “ten triangle” på appen “social gamebox”. 2 minutter. Før spillet begynner blir dere enige om hvor mange prompts dere skal greie. Når spillet begynner får dere en prompt og en tallverdi. Formidleren skal formidle tallverdien gjennom prompten. Gjetteren for et forsøk på å gjette riktig. Etter gjetterens gjett går man videre til neste prompt. Det er lov å skippe prompts. Det er ikke lov å gjette før den anndre personen formidleren har formidlet noe. Ikke lov å spamme tall liksom.\n\nDet er lov å øve",
+    "Type": "CYS",
+    "Coins": "10*X",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 12,
+    "Name": "Charades (Miming)",
+    "Explanation": "Charades, men kun lov å mime. 2 minutter. En gjetter, en formidler. Dere velger hvor mange charades dere skal greie på forhånd. Det er lov å skippe prompts.\nhttps://play-charades.com/",
+    "Type": "CYS",
+    "Coins": "8*X",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 13,
+    "Name": "Charades (En enkelt lyd)",
+    "Explanation": "Charades, men kun lov med 1 lyd. 2 minutter. En gjetter, en formidler. Dere velger hvor mange charades dere skal greie på forhånd. Det er lov å skippe prompts.\nhttps://play-charades.com/",
+    "Type": "CYS",
+    "Coins": "13*X",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 14,
+    "Name": "Wavelength 1.0",
+    "Explanation": "Målet er å få minst 8 av 16 poeng totalt etter 4 runder av standard wavelength.\n\nSpillet foregår på denne nettsiden:\nhttps://wavelengthgame.app/topics\nSpillets gang er at dere får to “ekstremer” og en person får se pila. Denne personen skal så si et ord/konsept som samsvarer med pilens posisjon mellom de to ordene. Dette ordet/konseptet skal helst være relativt kort. Liksom ikke et paragraf. En annen person skal så gjette hvor pila.\n\nOm gjettet er i det grønne området får man 4 poeng, de røde - 3 poeng, og de gule - 2 poeng. 0 ellers.\nGjenta dette 4 ganger. Om man har totalt 8 eller flere poeng på slutten av oppgaven, er den vunnet. Om det ikke går er oppgaven tapt. Ingen nye forsøk wompeti womp.",
+    "Type": "Mult",
+    "Coins": "1.25x",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 15,
+    "Name": "Wavelength 2.0",
+    "Explanation": "En person generer et tall mellom 1 og 10. En annen person skal prøve å gjette tallet. Den som gjetter velger 1 kategori. Den andre personen skal nå si en ting fra denne kategorien, som samsvarer med det hemmelige tallet. Gjør dette med to kategorier til. Så gjetter personen tallet. Hvis de får tallet nøyaktig riktig vinner man. Hvis man får tallet feil får man reattempte challengen én gang. (Altså man får forsøkt challengen to ganger.)\n\nKategoriene:\nLand\nPlass i Trondheim\nMatrett\nTing som har skjedd på JetLag\nChallenge i dette spillet\nSmågodt\nNyttårsforset\n\n(Tenker vurderingen burde liksom være “beste”. Så “beste land”, “beste smågodt” osv.). Tenker også at personen som skal gjette ikke burde gi noen indikasjon på tankene sine.\n\nPersonen som gjetter får si en kort tanke om hva de tror tallet er etter hvert hint, uten noe tilbakemelding fra den andre personen.",
+    "Type": "Stjel",
+    "Coins": "30%",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 16,
+    "Name": "Pictionary",
+    "Explanation": "En person generer et ord på denne nettsiden (bruk really hard):\nhttps://randomwordgenerator.com/pictionary.php\nDet er lov å skippe en gang per runde. Altså om du generer et ord du ikke liker, får du skippe, men da MÅ du ta det neste ordet uansett hva.\n\nDenne personen for så 2 minutter til å tegne på et ark, imens gjetteren prøver å gjette det. Om gjetteren gjetter riktig innen 2 minutter vinner dere. Om gjetteren ikke greier det må dere vente 3 minutter før dere får begynne på nytt.",
+    "Type": "Van",
+    "Coins": "30",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 17,
+    "Name": "Gjett fargen",
+    "Explanation": "En person generer en farge mellom disse 12 fargene i hemmelighet:\n- lyse/vanlig/mørke blå\n- lyse/vanlig/mørke grønn\n- lyse/vanlig/mørke gul\n- lyse/vanlig/mørke rød\n\nSå gir den personen et hint som passer til fargen, til den andre personen, som så gjetter hvilken farge det er. Dette gjentas 7 ganger\n\nOppgaven er bestått ved minst 5/7 korrekte forsøk.",
+    "Type": "Mult",
+    "Coins": "1.25x",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 18,
+    "Name": "He’s a ten but …",
+    "Explanation": "En person genererer et tilfeldig nummer mellom 1 og 10. De skal nå si en egenskap som tilsvarer at denne personen hadde vært det tallet ut av 10, selv om de ellers er en 10-er. Den andre personen gjetter tallet, og hvis det er riktig vinner dere oppgaven.\n\nVed feil tall må dere vente 3 minutter før dere kan prøve igjen.",
+    "Type": "Van",
+    "Coins": "50",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 19,
+    "Name": "Be in the hot seat",
+    "Explanation": "Velg på forhånd hvor mange riktige dere kommer til å greier ut av 10. Før dere gjetter har dere lov til å prøve ulike daily trivia games på lenken. Generer så et tilfeldig spill hvor to spillere får være med å gjette. Hvis de greier flere eller like mange som de valgte, vinner de. Hvis ikke taper man jo dessverre womp womp.\n\nhttps://www.jetpunk.com/daily-trivia/all",
+    "Type": "CYS",
+    "Coins": "8*X",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 20,
+    "Name": "Mediter akkurat nok",
+    "Explanation": "Bestem et antall minutter. En på laget må meditere så lenge, og gjette når den tiden har gått. Om de er mindre enn et minutt unna vinner dere.\n\nMå ikke sitte stille",
+    "Type": "CYS",
+    "Coins": "5*X",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 21,
+    "Name": "Stein saks papir - intellektets spill",
+    "Explanation": "Den eldste og den yngste spiller et spill av stein saks papir. Siden den eldste er den vise må de vinne. Om den eldste vinner er oppgaven bestått. Hvis den yngste vinner, eller det blir likt, må spillerne vente i 3 minutter, før de kan gjenta prosessen. Imens spillerne venter har de lov til å gå rundt, men ikke ta kollektiv transport eller claime en stasjon (med mindre de vil kanselere denne challengen). Ikke lov å diskutere hva man skal ta på noen som helst måte.",
+    "Type": "Van",
+    "Coins": "30",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 22,
+    "Name": "Stein saks papir mot en fremmed.",
+    "Explanation": "Spill stein saks papir mot en fremmed. Best av tre, vinner. Det er ikke lov å planlegge eller at den fremmede taper med vilje. Hvis dere taper kan dere forsøke igjen, men mot en annen fremmed.",
+    "Type": "Van",
+    "Coins": "30",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 23,
+    "Name": "Hus synergi",
+    "Explanation": "Dere bestemmer en person som er gjetteren og en som er velgeren. Velgeren ser på de 5 nærmeste husene og velger hvilken den har mest medium lyst til å bo i (Altså nummer 3 av 5). Gjetteren får så 2 gjett på hvilket hus det er. (Både Velgeren og gjetteren bestemmer på forhånd hva de 5 nærmeste husene er).",
+    "Type": "Stjel",
+    "Coins": "30%",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 24,
+    "Name": "Rull en terning",
+    "Explanation": "Rull en terning 20 meter bortover, slik at den lander på et partall. Distansen måles fra første punktet den treffer bakken til der den stopper.",
+    "Type": "Van",
+    "Coins": "30",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 25,
+    "Name": "Rull 6 partall på rad",
+    "Explanation": "Rull en terning, helt til du får partall på syv påfølgende rull. Du har uendlig forsøk",
+    "Type": "Van",
+    "Coins": "40",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 26,
+    "Name": "Bygg et korttårn",
+    "Explanation": "Bygg et tradisjonelt to etasjers korttårn. Tårnet må stå i 5 sekunder uten å falle uten ekstern støtte",
+    "Type": "Mult",
+    "Coins": "1.25x",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 27,
+    "Name": "Bygg et kortskyskraper",
+    "Explanation": "Bygg et tradisjonelt tre etasjers korttårn. Tårnet må stå i 5 sekunder uten å falle uten ekstern støtte",
+    "Type": "Stjel",
+    "Coins": "50%",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 28,
+    "Name": "Mind melt",
+    "Explanation": "På likt sier to av lagmedlemmene et ord. Etter det sier begge et nytt ord på likt, som skal være ordet midt imellom de to forrige. Hvis de har riktig, vinner de. Hvis de har feil gjentas må de vente i 30 sekunder før de får prøve igjen. Det er ikke lov å gjenta ord.\nMan kan alltid bli enige om å starte igjen fra starten, altså si to helt tilfeldige ord.",
+    "Type": "Van",
+    "Coins": "25",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 29,
+    "Name": "Hvem er dette?",
+    "Explanation": "En person tar 5 bilder av omgivelsene. En for hver person. En annen person må gjette alle riktig. Ikke lov å ta bilder av noen på laget eller bilde av navnet deres osv.",
+    "Type": "Stjel",
+    "Coins": "50%",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 30,
+    "Name": "Hangman",
+    "Explanation": "Vinn hard hangman! Hvis dere taper får dere prøve på nytt etter ett minutt.\nhttps://www.hangmanwords.com/play/hard-words",
+    "Type": "Stjel",
+    "Coins": "25%",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 31,
+    "Name": "Lag dyr med steiner",
+    "Explanation": "En på laget samler inn steiner i opptil 5 minutterl. Så bestemmer man for hvor mange ulike dyr man kan lage med steinene, hvor den andre personen gjetter alle dyrene riktig.\nPersonen lager så dyrene med steiner. Alle dyrene må være forskjellige. Hvis den andre personen gjetter alle riktig vinner dere. En feil så blir det et tap asså.\n\nIkke lov med bokstaver eller antydning til stavelse av dyret med steinene.\n\nMax 10 dyr.",
+    "Type": "CYS",
+    "Coins": "13*X",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 32,
+    "Name": "Back in mah day!",
+    "Explanation": "Uten å se på mobilen eller et kart, kom dere til et busstopp dere tror ikke er claimet eller som dere tror det andre laget har claimet. Når dere er ved busstoppet sjekker dere på mobilen, og om dere ikke har stasjonen greier dere challengen. Imens hvis den er deres eller dere ser på et kart, er challengen tapt, og dere må ikke lenger gå til stasjonen",
+    "Type": "Van",
+    "Coins": "25",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 33,
+    "Name": "Send et bilde til motstanderen",
+    "Explanation": "Send et bilde av en på laget til motstanderen. 50% av bildet må inneholde noe av huden til spilleren. Kameraet må være minst 4 cm unna spilleren. Bildet blir så sendt til det andre laget som må gjette hvilken spiller det er. Det andre laget har 5 minutter på å svare når de får meldingen. Hvis de ikke svarer, eller svarer feil vinner det andre laget. Imens man venter på svar får man lov til å begynne på en ny challenge og/eller ta buss.",
+    "Type": "Mult",
+    "Coins": "2x",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 34,
+    "Name": "Finn 25 bokstaver fra alfabetet",
+    "Explanation": "Finn ulike 25 bokstaver av alfabetet. Noter ned hver dere ser helt til kun tre er igjen. Kun de 29 bokstavene fra det norske alfabetet gjelder. Bokstaver funnet på mobiler eller på medbrakte ting gjelder ikke.\nIkke lov å gå inn på butikk.",
+    "Type": "Van",
+    "Coins": "80",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 35,
+    "Name": "Stackin' rocks",
+    "Explanation": "Hent inn så mange steiner dere vil i forberedelsesfasen. Før dere begynner å bygge, bestemmer dere dere for hvor mange steiner tårnet består av. Etter det har en person 1 minutt på å bygge et tårn med så mange steiner. Tårnet skal stå av seg selv i 5 sekunder når tiden er ute (eller på et punkt i løpet av minuttet), om det består av så mange steiner vinner dere oppgaven. Tårnet kan falle underveis i oppgaven, så lenge det står på slutten. Hver stein kan kun berøre steinen over og steinen under. Altså det er ikke lov å legge flere steiner direkte oppå samme stein.",
+    "Type": "CYS",
+    "Coins": "5*X",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 36,
+    "Name": "Husk setningen (ikke denne asså)",
+    "Explanation": "Generer en setning som er minst 20 ord. En på laget lærer seg settingen. Så går de minst 100 meter bort, snur, og går tilbake. De skal så gjenta setningen nøyaktig som de husker den. Om de greier å gjenta settningen helt riktig består dere oppgaven, om ikke er den tapt :/. (Ordene må være nøyaktig riktig, om det er flertall må det sies som flertall).\nhttps://randomwordgenerator.com/sentence.php",
+    "Type": "Mult",
+    "Coins": "1.5x",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 37,
+    "Name": "Del ut hus",
+    "Explanation": "Bli enige om hva de 5 nærmeste husene er. En på laget “deler ut” et hus til hver person i hemmelighet. En annen på laget må gjette hvem som har vært hus. Det er bare lov å gjette ett hus per person. Hvis man får minst to riktig består man oppgaven.\n\nHvis to hus er identiske, så velges bare en av dem som en av de fem nærmeste.",
+    "Type": "Van",
+    "Coins": "30",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 38,
+    "Name": "Kjeks til munn",
+    "Explanation": "Legg et kjeks midt på pannen, og transporter den inn i munnen kun ved bruk av fjeset og risting på hodet/kropp. Det er ingen øving på denne oppgaven, men tre forsøk. Det er lov å bytte person mellom hvert forsøk",
+    "Type": "Mult",
+    "Coins": "1.5x",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 39,
+    "Name": "Kos",
+    "Explanation": "Velg en view. Den ene på laget tegner alt den ser på 5 minutter uten at en annen på laget ser. Når tiden går ut skal den andre nevne 7 ting den ser i viewen. Hvis alle de er på tegningen vinner laget, hvis noen mangler taper laget.",
+    "Type": "Stjel",
+    "Coins": "50%",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 40,
+    "Name": "Name 100 women",
+    "Explanation": "Name 100 women. Skriv de inn i et excel dokument. Kun en kan skrive i excel skjemaet om gangen. Må være en menneskelig ekte kvinne.",
+    "Type": "Van",
+    "Coins": "80",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 41,
+    "Name": "Film et dyr",
+    "Explanation": "Film et dyr sammenhengende i 3 minutter. Det kan være fugl, maur, katt (ikke menneske!!!). Ikke film et dyr aktivt går på tur med et menneske, (en hund i bånd feks).",
+    "Type": "Van",
+    "Coins": "80",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 42,
+    "Name": "Klatre i et tre",
+    "Explanation": "Klatre opp et tre (ikke i noens hage), minst 2,5 meter. (Ingen del av deg er under 2,5 meter)",
+    "Type": "Van",
+    "Coins": "30",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 43,
+    "Name": "Skriv et ord på strava",
+    "Explanation": "En person generer et 4 bokstavs ord, og bruker strava til å skrive ordet. Den andre personen har et forsøk til å gjette riktig.",
+    "Type": "Mult",
+    "Coins": "1.25x",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 44,
+    "Name": "Gråt",
+    "Explanation": "Fell minst 5 tårer. Disse kan være fordelt over opptil to lagmedlemmer",
+    "Type": "Van",
+    "Coins": "30",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 45,
+    "Name": "Mål 15 centimeter",
+    "Explanation": "Laget må estimere 15 cm, uten feil, X antall ganger.\nDere kan øve så mye dere ønsker.\nNår øvelsen begynner skal en valgfri person spinne rundt 360 grader, så dra målebåndet opp til det du tror er 15 cm, uten å se på cm siden, lagmedlemmene dine får også ikke lov til å se på cm-siden.\nHvis guessen er innenfor 14,5-15,5 cm er det godkjent, hvis ikke er oppgaven feilet. Gjenta nå denne prosessen til dere har gjennomført det X ganger, MEN det må være en ny person som estimerer enn det var gangen før.\n\nDet er ikke lov å feks finne noe som er 15 cm og sammenligne med det når dere estimerer, shamener?",
+    "Type": "CYS",
+    "Coins": "5*X",
+    "Koordinater": ""
+  },
+  {
+    "Nummer": 46,
+    "Name": "Tyholttårnet 101",
+    "Explanation": "En spiller drar opp i Tyholt tårnet. Den andre blir utenfor. Uten å planlegge på forhånd må personen i Tyholttårnet ta bilde av den andre personen i løpet av 2 minutter\n\nMinst 70 meter fra sentrum av tyholttårnet\n\nGressletta er ikke lov å gjemme seg på",
+    "Type": "Van",
+    "Coins": "30",
+    "Koordinater": "63.422615, 10.431601"
+  },
+  {
+    "Nummer": 47,
+    "Name": "Lekebuldring",
+    "Explanation": "Klatre en full runde rundt på “klatre steinen”. Det er bare lov å holde seg fast, stå på eller lene seg mot “hold”-ene altså bare delene som stikker ut. Ikke len deg på toppen liksom.\nHvis du rører bakken er oppgaven tapt. Kun lov med et forsøk.",
+    "Type": "Stjel",
+    "Coins": "35%",
+    "Koordinater": "63.443075, 10.457402"
+  },
+  {
+    "Nummer": 48,
+    "Name": "Balanse",
+    "Explanation": "1 person balanserer stående på dumphuska. Om de greier å stå på den uten at husken rører bakken på 5 sekunder vinner laget",
+    "Type": "Van",
+    "Coins": "60",
+    "Koordinater": "63.443049, 10.458783"
+  },
+  {
+    "Nummer": 49,
+    "Name": "Spinner",
+    "Explanation": "Løp 1 runde rundt på den blå spinneren. Uendelig med øve-forsøk. Ett gjeldende forsøk.",
+    "Type": "Mult",
+    "Coins": "1.25x",
+    "Koordinater": "63.419625, 10.393600"
+  },
+  {
+    "Nummer": 50,
+    "Name": "Rema 1000 priser",
+    "Explanation": "Finn 3 ting på Rema 1000. To av dem koster omtrent det samme (Den ene koster maksimalt 10% mindre enn den andre), og en ting som enten er dobbelt så dyrt som den dyreste eller halvparten så dyr som den billigste. Send så et bilde av disse tre til det andre laget, slik at de kan gjette hvilken som er en annen pris enn de to andre. Hvis de ikke svarer innen 5 minutter, eller svarer feil vinner dere. Hvis de svarer riktig taper dere. Imens man venter på svar får man lov til å begynne på en ny challenge og/eller ta buss.",
+    "Type": "Mult",
+    "Coins": "1.5x",
+    "Koordinater": "63.430423, 10.419845"
+  },
+  {
+    "Nummer": 51,
+    "Name": "For en upassende butikk!",
+    "Explanation": "Finn et produkt som selges på en av butikkene på sirkus shopping. Send det andre laget bilde av produktet og av tre ulike butikker på sentret (inkludert der dere fant produktet). Butikkene kan også ikke være i nøyaktig samme kategori, altså ikke to ulike klesbutikker. Det andre laget skal nå gjette hvilken butikk som har produktet. Hvis de ikke svarer innen 5 minutter, eller svarer feil vinner dere. Hvis de svarer riktig taper dere. Imens man venter på svar får man lov til å begynne på en ny challenge og/eller ta buss.\nLov å sensurere navn på butikken.\nIkke velg noe som 100% finnes på de andre butikkene av samme funksjonalitet.",
+    "Type": "Mult",
+    "Coins": "1.5x",
+    "Koordinater": "63.435377, 10.456368"
+  },
+  {
+    "Nummer": 52,
+    "Name": "Finn festfolk på samf",
+    "Explanation": "Spør rundt ved inngangen til samfunnet om de skal på fest i kveld. Hvis noen sier ja vinner dere. Ikke lov å spørre folk som går inn, står i kø for eller kommer ut fra samfunnet.",
+    "Type": "Van",
+    "Coins": "40",
+    "Koordinater": "63.422650, 10.394822"
+  },
+  {
+    "Nummer": 53,
+    "Name": "Papirfly",
+    "Explanation": "Lag et papirfly og kast det minst 5 meter (horisontalt målt) (uendlig med øveforsøk, men kun 3 gjeldene).",
+    "Type": "Stjel",
+    "Coins": "40%",
+    "Koordinater": "63.424977, 10.395744"
+  },
+  {
+    "Nummer": 54,
+    "Name": "Kast og ta imot en terning",
+    "Explanation": "En person kaster terningen og en person tar imot. Det er lov med øving. Når det gjelder, står den som kaster x meter fra den som tar imot. Dere for to forsøk på å kaste og å ta imot terningen. Ikke lov å løfte beina fra bakken.",
+    "Type": "CYS",
+    "Coins": "3*X",
+    "Koordinater": "63.436748, 10.426428"
+  },
+  {
+    "Nummer": 55,
+    "Name": "Hvor mange er på torget?",
+    "Explanation": "To gjetter hvor mange som er på trondheim torg. Hvis deres guesses er mindre enn 15% fra hverandre vinner dere.\n\n1 forsøk",
+    "Type": "Van",
+    "Coins": "30",
+    "Koordinater": "63.430711, 10.394858"
+  },
+  {
+    "Nummer": 56,
+    "Name": "Balansegang på moholt",
+    "Explanation": "Balanser fra den ene siden til den andre uten å røre bakken. Uendlig forsøk.",
+    "Type": "Van",
+    "Coins": "20",
+    "Koordinater": "63.411801, 10.432596"
+  },
+  {
+    "Nummer": 57,
+    "Name": "Djungelskog",
+    "Explanation": "Finn en Djungelskog på IKEA-en. Det er ikke lov å spørre en ansatt om hjelp. Må være en fysisk Djungelskog, ikke et bilde.",
+    "Type": "Van",
+    "Coins": "80",
+    "Koordinater": "63.428632, 10.472088"
+  },
+  {
+    "Nummer": 58,
+    "Name": "Finn folka",
+    "Explanation": "Finn 5 av disse 7 menneskene:\nBriller\nBart uten skjegg\nSkjegg uten bart\nKunstig hårfarge\nKlær med et fjes på\nTattooering\nNoen i shorts\n\nDere kan kun bruke en person per egenskap. Altså om noen har briller eller er skalla kan dere kun huke av en av delene. Det er lov å endre hva en person var huket av for. Ikke lov å bruke dere selv.\n\nVed kunstig hårfarge tenker jeg at det er en farge som er helt umulig. Liksom selv om den personen der antageligvis ikke har grått hår, telles det ikke siden det er fullt mulig å ha grått hår.\n\nKonkurransen pågår helt til dere legger ned coins på en ny stasjon eller tar offentlig transport.",
+    "Type": "Mult",
+    "Coins": "1.5x",
+    "Koordinater": "63.430006, 10.392357"
+  },
+  {
+    "Nummer": 59,
+    "Name": "Hvor stor tihi er Olav Trygvasson",
+    "Explanation": "Begge to skriver ned hvor høy de tror Olav Trygvasson (hele statuen) er i meter. Hvis den som gjetter høyest gjettet mer enn 10% av det den andre gjettet er oppgaven tapt. Hvis det er innenfor 10% er oppgaven vunnet woho!\n\nAltså har ikke den faktiske størrelsen noe å si men man kan da google om man ønsker etterpå.\n\nIkke lov å planlegge hva man gjetter, eller gjette noe åpenbart feil som “1 meter” typ",
+    "Type": "Mult",
+    "Coins": "1.25x",
+    "Koordinater": "63.430495, 10.394965"
+  },
+  {
+    "Nummer": 60,
+    "Name": "Estimer volumet av Nidarosdomen?",
+    "Explanation": "Begge to skriver ned hvor stor er nidarosdommen i m^3. Altså massen. Hvis den som gjetter høyest gjettet mer enn 35% av det den andre gjettet, er oppgaven tapt. Hvis det er innenfor 35% er oppgaven vunnet woho!\n\nAltså har ikke den faktiske størrelsen noe å si, men man kan da google om man ønsker etterpå.\n\nIkke lov å planlegge hva man gjetter, eller gjette noe åpenbart feil som “1 meter” typ.\n\nDet er lov å diskutere hva som er en del av Nidarosdommen og ikke",
+    "Type": "Stjel",
+    "Coins": "40%",
+    "Koordinater": "63.426905, 10.395724"
+  },
+  {
+    "Nummer": 61,
+    "Name": "Hvor mange butikker er det på Sirkus shopping?",
+    "Explanation": "Begge to skriver ned hvor mange butikker de tror det er på sirkus shopping. Hvis den som gjetter høyest gjettet mer enn 10% av det den andre gjettet, er oppgaven tapt. Hvis det er innenfor 10% er oppgaven vunnet woho!\n\nAltså har ikke det faktiske antallet butikker noe å si, men man kan da google om man ønsker etterpå.\n\nDet er ikke lov å se på en oversikt av butikklayouten, eller en oversikt av butikkene. Men det er lov å gå rundt på Sirkus før man gjetter.\n\nIkke lov å planlegge hva man gjetter, eller gjette noe åpenbart feil som “1 butikk” typ",
+    "Type": "Van",
+    "Coins": "50",
+    "Koordinater": "63.435839, 10.454849"
+  },
+  {
+    "Nummer": 62,
+    "Name": "Hvor lang er gamle bybro?",
+    "Explanation": "Begge to skriver ned hvor lang Gamle Bybro er i meter. Hvis den som gjetter høyest gjettet mer enn 10% av det den andre gjettet, er oppgaven tapt. Hvis det er innenfor 10% er oppgaven vunnet woho!\n\nAltså har ikke det faktiske lengden noe å si, men man kan da google om man ønsker etterpå.\n\nIkke lov å planlegge hva man gjetter, eller gjette noe åpenbart feil som “1 meter” typ.\n\nDet er lov å bli enige om hvor Gamle Bybro starter og slutter.\n\nUnngå helst se på hverandre for resten av øvelsen, sånn at dere feks ikke ser hvor langt den andre tror en meter er feks.",
+    "Type": "Van",
+    "Coins": "60",
+    "Koordinater": "63.428294, 10.400912"
+  }
+]

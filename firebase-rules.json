@@ -1,0 +1,35 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "rooms": {
+      "$code": {
+        ".read": true,
+        "config": {
+          ".write": "!data.exists() && newData.exists()",
+          ".validate": "newData.hasChildren(['seed', 'startCoins', 'secret'])"
+        },
+        "events": {
+          "$n": {
+            ".write": "!data.exists() && newData.exists()",
+            ".validate": "newData.hasChildren(['type', 'team', 'cid']) && $n.matches(/^[0-9]{1,5}$/)"
+          }
+        },
+        "pos": {
+          "$device": {
+            ".write": true,
+            ".validate": "newData.hasChildren(['team', 'lat', 'lon', 'at'])"
+          }
+        },
+        "track": {
+          "$device": {
+            "$id": {
+              ".write": "!data.exists() && newData.exists()",
+              ".validate": "newData.hasChildren(['lat', 'lon', 'at'])"
+            }
+          }
+        }
+      }
+    }
+  }
+}

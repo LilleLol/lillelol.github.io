@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#203040">
+<title>Eksporter challenges</title>
+<link rel="icon" href="icon-192.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="app.css">
+<style>
+  html, body { height: auto; }
+  body { overflow: auto; background: var(--ink); }
+  .bars { height: 18px; background: var(--stripes); }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 28px 18px 60px; display: flex; flex-direction: column; gap: 18px; }
+  .wrap > h1 { font-family: var(--display); font-weight: 900; font-size: clamp(38px, 8vw, 56px); line-height: 1; text-transform: uppercase; letter-spacing: .02em; color: var(--bg); }
+  .wrap > p { color: #c9d0d7; font-size: 16px; max-width: 60ch; }
+  .wrap a { color: var(--yellow); }
+  .panel a { color: var(--blue); }
+  .drop {
+    display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 34px 18px; text-align: center; cursor: pointer;
+    background: var(--bg); color: var(--ink); border: 3px dashed var(--ink); border-radius: 18px; outline: 3px solid var(--bg);
+  }
+  .drop.over { background: var(--yellow-2); }
+  .drop b { font-family: var(--display); font-weight: 900; font-size: 28px; text-transform: uppercase; }
+  .drop span { color: var(--muted); font-size: 15px; }
+  .summary { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .msgs { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px; font-size: 14.5px; }
+  .panel.bad { border-left: 10px solid var(--red); }
+  .panel.warn { border-left: 10px solid var(--yellow); }
+  .panel.good { border-left: 10px solid #2fae62; }
+  .tablewrap { overflow-x: auto; border: var(--line); border-radius: 12px; background: var(--paper); }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { padding: 7px 10px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--soft); }
+  th { font-family: var(--display); font-weight: 800; font-size: 14px; letter-spacing: .06em; text-transform: uppercase; background: var(--soft); position: sticky; top: 0; }
+  td.num { font-family: var(--display); font-weight: 800; font-size: 16px; white-space: nowrap; }
+  td.ex { color: var(--muted); max-width: 44ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  tr.changed td:first-child { box-shadow: inset 5px 0 0 var(--yellow); }
+  ol.steps { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; color: var(--muted); font-size: 15px; }
+  ol.steps b { color: var(--ink); }
+</style>
+</head>
+<body>
+<div class="bars"></div>
+<main class="wrap">
+  <h1>Eksporter challenges</h1>
+  <p>Slipp Excel-arket her, så får du en ny <b>challenges.json</b> som spillet leser. Filen blir værende på maskinen din og lastes ikke opp noe sted.</p>
+
+  <label class="drop" id="drop">
+    <b>Slipp Challenges.xlsx her</b>
+    <span>eller trykk for å velge filen</span>
+    <input type="file" id="file" accept=".xlsx,.xlsm,.xls,.json" hidden>
+  </label>
+
+  <div id="out" style="display:flex;flex-direction:column;gap:18px"></div>
+
+  <div class="panel">
+    <h3>Slik oppdaterer du challengene</h3>
+    <ol class="steps">
+      <li>Rediger <a href="Challenges.xlsx" download><b>Challenges.xlsx</b></a> og lagre.</li>
+      <li>Slipp filen i feltet over. Siden sjekker at alt er riktig fylt ut.</li>
+      <li>Trykk <b>Last ned challenges.json</b> og legg filen i prosjektmappen, i stedet for den gamle.</li>
+      <li>Push til GitHub. <b>Nye rom</b> bruker de nye challengene. Rom som allerede er laget, beholder de gamle.</li>
+    </ol>
+  </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="data.js"></script>
+<script src="engine.js"></script>
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+// Dagens publiserte challenges, for å vise hva som er endret.
+let current = null;
+fetch('challenges.json', { cache: 'no-store' }).then(r => r.json()).then(j => { current = j; }).catch(() => {});
+
+async function readRows(file) {
+  if (/\.json$/i.test(file.name)) return JSON.parse(await file.text());
+  const wb = XLSX.read(await file.arrayBuffer(), { cellDates: true });
+  const name = wb.SheetNames.find(n => n.trim().toLowerCase() === 'challenges') || wb.SheetNames[0];
+  return XLSX.utils.sheet_to_json(wb.Sheets[name], { defval: '', raw: true });
+}
+
+async function handle(file) {
+  let parsed;
+  try { parsed = Engine.parseChallenges(await readRows(file)); }
+  catch (e) { parsed = { list: [], errors: ['Kunne ikke lese filen: ' + e.message], warnings: [] }; }
+  const { list, errors, warnings } = parsed, rows = Engine.toRows(list);
+  let html = '';
+  if (errors.length) html += `<div class="panel bad"><h3>${errors.length} feil må rettes</h3><p>Rett disse i Excel-arket, lagre og slipp filen på nytt.</p><ul class="msgs">${errors.map(e => `<li>${esc(e)}</li>`).join('')}</ul></div>`;
+  if (warnings.length) html += `<div class="panel warn"><h3>${warnings.length} ting å se over</h3><ul class="msgs">${warnings.map(e => `<li>${esc(e)}</li>`).join('')}</ul></div>`;
+  if (list.length) {
+    const count = t => list.filter(c => c.type === t).length;
+    // Sammenlign med det som ligger ute nå.
+    const old = new Map((current || []).map(r => [r.Nummer, JSON.stringify(r)]));
+    const changed = new Set(rows.filter(r => old.has(r.Nummer) && old.get(r.Nummer) !== JSON.stringify(r)).map(r => r.Nummer));
+    const added = new Set(rows.filter(r => !old.has(r.Nummer)).map(r => r.Nummer));
+    const removed = current ? current.filter(r => !rows.some(x => x.Nummer === r.Nummer)) : [];
+    const diff = current ? `<p>Mot det som ligger ute nå: <b>${changed.size}</b> endret, <b>${added.size}</b> nye, <b>${removed.length}</b> fjernet${removed.length ? ` (${removed.map(r => esc(r.Name)).join(', ')})` : ''}.</p>` : '';
+    html += `
+      <div class="panel good">
+        <h3>${list.length} challenges er klare</h3>
+        <div class="summary">${['Van', 'Stjel', 'Mult', 'CYS'].map(t => `<span class="type-chip type-${t}">${t} ${count(t)}</span>`).join('')}<span class="pill">${list.filter(c => c.loc).length} med fast sted</span></div>
+        ${diff}
+        <button class="btn yellow" id="dl">Last ned challenges.json</button>
+      </div>
+      <div class="tablewrap"><table>
+        <tr><th>Nr</th><th>Name</th><th>Type</th><th>Coins</th><th>Sted</th><th>Explanation</th></tr>
+        ${rows.map(r => `<tr class="${changed.has(r.Nummer) || added.has(r.Nummer) ? 'changed' : ''}"><td class="num">${r.Nummer}</td><td><b>${esc(r.Name)}</b>${added.has(r.Nummer) ? ' <span class="flag">Ny</span>' : changed.has(r.Nummer) ? ' <span class="flag">Endret</span>' : ''}</td><td><span class="type-chip type-${r.Type}">${r.Type}</span></td><td class="num">${esc(r.Coins)}</td><td>${r.Koordinater ? 'Fast' : ''}</td><td class="ex">${esc(r.Explanation.split('\n')[0])}</td></tr>`).join('')}
+      </table></div>`;
+  }
+  $('out').innerHTML = html;
+  if ($('dl')) $('dl').onclick = () => {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([JSON.stringify(rows, null, 2) + '\n'], { type: 'application/json' }));
+    a.download = 'challenges.json';
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+  };
+  $('out').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+$('file').onchange = e => { if (e.target.files[0]) handle(e.target.files[0]); e.target.value = ''; };
+const drop = $('drop');
+['dragenter', 'dragover'].forEach(t => drop.addEventListener(t, e => { e.preventDefault(); drop.classList.add('over'); }));
+['dragleave', 'drop'].forEach(t => drop.addEventListener(t, e => { e.preventDefault(); drop.classList.remove('over'); }));
+drop.addEventListener('drop', e => { if (e.dataTransfer.files[0]) handle(e.dataTransfer.files[0]); });
+</script>
+</body>
+</html>
