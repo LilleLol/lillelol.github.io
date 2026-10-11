@@ -1,104 +1,157 @@
 # Jet Lag Trondheim
 
-En mobilside for en runde Jet Lag med Taiwan-regler i Trondheim, lag Blå mot lag Rød. Kartet viser alle busstoppene på brettet og ti challenges til enhver tid. Alt genereres fra en seed, så begge lag ser nøyaktig de samme challengene på de samme stedene.
+En nettapp for en runde Jet Lag med Taiwan-regler i Trondheim, lag Blå mot lag Rød. Lagene gjør challenges for å tjene coins, og legger coins på busstopp for å ta dem. Laget med flest busstopp vinner.
 
-Hele siden er én fil: `index.html`.
+Alt synkes mellom telefonene med en gang: challenges, coins, busstopp og hvor spillerne er.
+
+## Kom i gang
+
+1. Gå inn på [lillelol.github.io](https://lillelol.github.io/).
+2. Skriv navnet ditt og velg lag (Blå eller Rød).
+3. Én spiller velger **Nytt rom**, setter hvor mange coins lagene starter med, og får en romkode på fem tegn.
+4. De andre velger **Bli med** og skriver romkoden. Koden kan også deles med «Inviter»-knappen øverst.
+
+Siden kan legges på hjemskjermen og åpnes som en app: «Legg til på Hjem-skjerm» i Safari, eller «Installer app» i Chrome.
+
+Telefonen husker rommet, så du kommer rett inn igjen når du åpner siden på nytt.
+
+## Under spillet
+
+### Challenges
+
+- Brettet starter med **5 challenges**. Hver gang en forsvinner, kommer det **2 nye**, til det er 10 på kartet. Deretter kommer det én ny for hver som forsvinner.
+- Rekkefølgen er bestemt av rommets seed. Neste challenge er alltid den neste i rekka, uansett hvilken som ble fjernet, så det ligger aldri to like på kartet.
+- På kartet ser dere bare type og premie. **Hva challengen går ut på, er skjult** til dere aktiverer den.
+- **Aktiver:** Trykk på en challenge og deretter «Aktiver challenge». Da ser laget navn og beskrivelse, og premien for CYS.
+  - Laget kan bare ha **én aktiv challenge**.
+  - Den må klares eller feiles. Den kan ikke avbrytes.
+  - Det andre laget ser ikke hva dere har aktivert.
+- **Vi klarte:** Premien regnes ut og legges til med en gang.
+  - Van: coins rett inn.
+  - Stjel: prosenten tas fra det andre lagets coins.
+  - Mult: lagets coins økes med multiplieren (1.25x gir 25 % mer).
+  - CYS: dere låser X før dere starter, og får X × n coins hvis dere klarer det.
+- **Vi feilet:** Hvert lag får bare **ett forsøk** per challenge. Den blir liggende for det andre laget.
+  - For **Van og CYS** øker premien med 50 %. **Stjel og Mult øker ikke.**
+  - Feiler begge lag, byttes challengen ut.
+- **Bonuschallenge:** Er en aktivert stedsbundet challenge (gul nål) umulig å gjennomføre på stedet, trykker dere «Trekk bonuschallenge» og gjør den i stedet, for ny pris.
+
+### Busstopp
+
+- Trykk på et busstopp for å se hvor mange coins hvert lag har der, og for å legge coins.
+- Laget med **flest coins** på stoppet eier det. Stoppet får lagets farge på kartet.
+- For å ta et stopp må dere legge nok til å lede med minst 1. Coins dere har lagt der fra før, teller med.
+- Man kan **ikke lede med mer enn 8** coins.
+- Man må være på stoppet for å legge coins. Appen sier fra hvis dere er langt unna, men stopper dere ikke.
+
+### Annet
+
+- **Poengtavla** nede til venstre viser antall busstopp og coins for begge lag.
+- **Posisjoner:** Begge lag ser alle spillerne på kartet. Posisjonen oppdateres bare mens siden er åpen på skjermen. I menyen kan du slå av deling, eller holde skjermen på.
+- **Logg:** Alt som har skjedd. Lagets siste handling kan angres, og da settes coins, busstopp og challenges tilbake for begge lag.
+- **Juster coins:** I menyen, for å rette feil. Justeringen vises i loggen for begge lag.
+
+## Når spillet er over
+
+- **Avslutt spillet:** Meny → «Avslutt spillet». Det avslutter for begge lag, og ingen kan gjøre flere trekk.
+- **Vinneren** er laget med flest busstopp. Står det likt, vinner laget med flest coins igjen.
+- **Reprisen** starter av seg selv hos alle når spillet avsluttes:
+  - Lagene beveger seg på kartet med et spor etter seg.
+  - Challenges og coins spretter opp der de skjedde, og busstoppene skifter farge.
+  - Poengtavla og klokka følger med, og lange pauser i spillet er krympet.
+  - Til slutt kommer vinneren, med tall for begge lag.
+- Reprisen kan ses igjen fra den gule linjen øverst på kartet eller fra menyen.
+- Laget som avsluttet, kan angre avslutningen i loggen hvis det skjedde ved en feil.
+
+Bevegelsene i reprisen kommer fra posisjonene telefonene delte underveis, altså bare mens siden var åpen. Har et lag ikke delt posisjon, følger markøren stedene der laget gjorde noe.
+
+## Varsler på låst telefon
+
+Mens siden er åpen, får du melding med lyd og vibrasjon når det andre laget gjør noe. For varsler når telefonen ligger i lomma:
+
+1. Installer gratisappen **ntfy** fra App Store eller Google Play.
+2. Åpne Meny → «Varsler på låst telefon» i spillet og trykk «Åpne i ntfy», eller legg til emnet manuelt i appen.
+
+Hvert lag har sitt eget emne per rom, så dette gjøres på nytt for hvert nye rom.
+
+## Endre challenges
+
+Challengene ligger i `challenges.json`, som spillet leser hver gang siden åpnes. Filen lages fra Excel-arket `Challenges.xlsx`:
+
+1. Åpne `Challenges.xlsx` og endre, legg til eller slett rader i arket «Challenges». Arket «Slik gjør du» forklarer kolonnene.
+2. Lagre, og åpne [lillelol.github.io/eksport.html](https://lillelol.github.io/eksport.html).
+3. Slipp Excel-filen der. Siden sjekker at alt er riktig fylt ut, og viser hva som er endret.
+4. Trykk «Last ned challenges.json», legg filen i prosjektmappen i stedet for den gamle, og push.
+
+Kolonnene er de samme som i det opprinnelige arket:
+
+| Kolonne | Innhold |
+| --- | --- |
+| Nummer | Et heltall. Hvert nummer brukes bare én gang. |
+| Name | Navnet. Vises først når et lag har aktivert challengen. |
+| Explanation | Forklaringen. Linjeskift og lenker beholdes. |
+| Type | `Van`, `Stjel`, `Mult` eller `CYS`. |
+| Coins | Van: `30`. Stjel: `25%`. Mult: `1.25x`. CYS: `5*X`. |
+| Koordinater | Bare for challenges med fast sted, for eksempel `63.42262, 10.43160`. Tom for resten. |
+
+Koordinatene finner du ved å høyreklikke på stedet i Google Maps og trykke på tallene øverst. Kortlenker som `maps.app.goo.gl/…` kan ikke brukes.
+
+Et rom tar med seg challengene som gjaldt da det ble laget. **Nye challenges gjelder derfor bare nye rom**, og et spill som er i gang, blir ikke påvirket av at filen endres.
+
+## Oppsett av Firebase (gjøres én gang)
+
+Synken går gjennom en gratis Firebase-database. Den som eier siden, setter den opp slik:
+
+1. Gå til [console.firebase.google.com](https://console.firebase.google.com/) og lag et prosjekt. Google Analytics trengs ikke.
+2. Velg **Build → Realtime Database → Create Database**. Velg plassering `europe-west1` og start i låst modus.
+3. Åpne fanen **Rules**, lim inn innholdet i `firebase-rules.json` og trykk Publish.
+4. Gå til **Prosjektinnstillinger → Dine apper**, legg til en nettapp (`</>`) og kopier verdiene i `firebaseConfig`.
+5. Lim verdiene inn i `config.js` og last opp til GitHub.
+
+Nøklene i `config.js` er ikke hemmelige. Tilgangen styres av reglene: bare den som kan romkoden, får lest eller skrevet i et rom, og hendelser kan ikke endres etterpå.
 
 ## Filer
 
 | Fil | Hva |
 | --- | --- |
-| `index.html` | Selve siden. Alle data er bakt inn. |
-| `Jet Lag - Trondheim Buss Skynding.docx` | Challengene med beskrivelser, typer og poeng. Dette er kilden for challengene. |
-| `Taiwan jet lag i trondheim.xlsx` | Brettet (Ark 1) med busstoppene, pluss oversikt og generator fra planleggingen. |
+| `index.html`, `app.css`, `app.js` | Siden, utseendet og appen. |
+| `engine.js` | Reglene: kortstokken, premier, coins og busstopp. |
+| `replay.js` | Reprisen og vinnerskjermen når spillet er over. |
+| `challenges.json` | Challengene spillet bruker. Lages fra Excel-arket. |
+| `Challenges.xlsx` | Arket dere redigerer challengene i. |
+| `eksport.html` | Gjør Excel-arket om til `challenges.json`. |
+| `data.js` | Busstopp, brettets omriss og de tillatte tilfeldige stedene. |
+| `config.js` | Adressen til siden og Firebase-nøklene. |
+| `firebase-rules.json` | Reglene som limes inn i Firebase. |
+| `manifest.webmanifest`, `sw.js`, `icon-*.png` | Gjør at siden kan legges på hjemskjermen. |
+| `Jet Lag - Trondheim Buss Skynding.docx` | Det opprinnelige dokumentet challengene ble hentet fra. |
+| `Taiwan jet lag i trondheim.xlsx` | Kilden for busstoppene (Ark 1). |
 
-## Kom i gang
+## Slik fungerer synken
 
-1. Gå inn på lillelol.github.io
-2. Begge lag skriver inn **samme seed**, velger **sitt lag** (Blå eller Rød) og trykker «Start!». Mellomrom i starten og slutten teller ikke.
-3. Spill.
+- Et rom er en nummerert liste med hendelser i databasen: aktivert, klart, feilet, coins lagt på stopp og så videre.
+- Alle telefoner regner ut hele spillet fra den samme lista med de samme reglene (`engine.js`). Derfor ser alle nøyaktig det samme.
+- To telefoner kan ikke ta samme nummer i lista. Sender begge lag noe samtidig, havner hendelsene i samme rekkefølge hos alle.
+- Uten nett legges handlingene i kø på telefonen og sendes når nettet er tilbake.
 
+## Kart og data
 
-Siden trenger nett for kartet, skriftene og kartbiblioteket. Statusen lagres i nettleseren på telefonen, så den er der når du åpner siden igjen. Den forsvinner hvis du sletter nettleserdata eller bruker privat modus.
-
-## Under spillet
-
-- **Kartet:** Hvite sirkler er busstoppene, og navnene vises når du zoomer inn. Den tynne stiplede linjen er brettet. Den tykke stiplede linjen er grensen 1 km utenfor, og alt utenfor den er tonet ned.
-- **Challenges** vises som fargede merker med premien: coins (mynt og tall), prosent for Stjel og `1.25x` og lignende for Mult. For Call your shot står det bare `CYS`. En gul nål betyr fast sted. **Hva challengen går ut på, er skjult** til dere aktiverer den.
-- **Aktiver:** Trykk på en challenge og deretter «Aktiver challenge». Da ser dere navn og beskrivelse, og for CYS også premien (for eksempel `5 × X`). Den aktive challengen står øverst på kartet og er merket «Aktiv».
-  - Dere kan bare ha **én aktiv challenge** om gangen.
-  - Den må enten klares eller feiles. Den kan ikke avbrytes.
-  - Aktiveringen er privat for telefonen. Det andre laget ser ikke hva dere har aktivert.
-- **«Vi klarte»:** Trykk to ganger for å bekrefte. Challengen forsvinner, og en ny dukker opp med en gang.
-- **«Vi feilet»:** Hvert lag får bare **ett forsøk** per challenge. Challengen blir liggende for det andre laget, og premien øker med **50 %**.
-  - Van: 30 → 45 coins. Hele coins, avrundet.
-  - Stjel: 25 % → 37.5 %.
-  - Mult: økningen blir 50 % større, så 1.25x → 1.375x og 2x → 2.5x.
-  - CYS: 5 × X → 7.5 × X.
-  - Feiler begge lag, kan ingen ta den lenger, og den byttes ut med en ny.
-- **Rapporter fra det andre laget:** Nederst på hvert kort registrerer dere når motstanderen klarer eller feiler en challenge. Det trenger ikke aktivering. **Husk å gjøre dette**, ellers blir kartene ulike.
-- **Bonuschallenge:** Er en aktivert stedsbundet challenge umulig å gjennomføre på grunn av forholdene på stedet, trykker dere «Trekk bonuschallenge» på kortet. Dere får en vanlig challenge som gjøres i stedet, for ny pris. Den er bestemt ut fra seeden, så begge lag får den samme. Marker til slutt «Vi klarte» eller «Vi feilet» på det stedsbundne kortet.
-- **Liste** (øverst til høyre): Alle de ti challengene på kartet, med den aktive øverst. Med posisjon på sorteres resten etter avstand.
-- **Logg:** Alt som er klart og feilet. Siste markering på hver plass kan angres, og da blir en challenge dere selv hadde aktivert, aktiv igjen. Husk at det andre laget også må angre.
-- **Poengtavla** nede til venstre teller hvor mange challenges hvert lag har klart. Den regner ikke coins.
-
-## Holde lagene i synk
-
-Siden har ingen server. Hvert lag markerer på sin egen telefon. Kartet og premiene blir like så lenge begge har registrert **de samme resultatene**: hvilke challenges som er klart, og hvilke lag som har feilet hvilke. Rekkefølgen spiller ingen rolle, og det gjør heller ikke hvilket lag som klarte hva.
-
-Er dere usikre, kan dere dele status. Trykk «Del» (pila øverst) eller gå til Meny → «Synk med det andre laget».
-
-- Ligger siden på en nettside, deles en lenke. Det andre laget åpner den, og statusen legges inn.
-- Er siden åpnet som fil, deles en kort kode (`#s=…&d=…`). Det andre laget limer den inn under Meny → «Importer status».
-
-Import legger bare til markeringer og sletter aldri noe.
-
-## Challenge-typer
-
-Fra Word-dokumentet:
-
-| Type | Betydning | På kartet |
-| --- | --- | --- |
-| **Van** | Vanlig. Greier dere challengen, får dere et bestemt antall coins. | Antall coins |
-| **Stjel** | Greier dere challengen, stjeler dere en bestemt prosent coins fra det andre laget. | Prosent |
-| **Mult** | Multiplier. Greier dere challengen, får dere en prosentvis økning på coinsa deres. | For eksempel `1.25x` |
-| **CYS** | Call your shot. Bestem et antall x på forhånd. Greier dere x, får dere x·n coins. | Bare `CYS`. Premien (`n × X`) vises etter aktivering |
-
-## Regler for kartet
-
-- Det ligger alltid **10 challenges** ute. Premien vises, men ikke hva challengen er.
-- Et lag kan ha **én aktivert** challenge og får **ett forsøk** per challenge. Feiler et lag, øker premien med 50 %. Feiler begge, byttes challengen ut.
-- Alle **62** challengene fra Word-dokumentet kan trekkes.
-- De **17 stedsbundne** (nr. 46–62) dukker bare opp på sitt faste sted, hentet fra kartlenkene i dokumentet.
-- De **45 andre** havner et tilfeldig sted langs en gate eller sti, maks **1 km** utenfor brettet. Brettet er området som omslutter alle busstoppene.
-- Tilfeldige steder havner **aldri på vann**. Fjorden, Nidelva, Kanalen, dammer, brygger, moloer og broer er filtrert bort.
-
-## Slik genereres challengene
-
-- Seeden gjøres om til tall med en fast tilfeldighetsgenerator (cyrb128 + sfc32), som gir samme resultat i alle nettlesere.
-- De 62 challengene fordeles på **10 plasser**, 6–7 per plass, og hver plass har sin egen faste rekkefølge. Det som ligger ute på en plass, avhenger bare av seeden og hvor mange som er klart på den plassen. Derfor spiller rekkefølgen lagene trykker i ingen rolle.
-- Når alle challengene på en plass er brukt, starter plassen på nytt i en ny rekkefølge («runde 2»), og de tilfeldige challengene får nye steder.
-- Tilfeldige steder trekkes fra en fast liste med 4 297 punkter langs gater og stier.
-
-## Datakilder
-
-- **Challenges:** `Jet Lag - Trondheim Buss Skynding.docx`. Den stemmer med Challenge overview i Excel på navn, type, poeng og kartlenke.
+- **Challenges:** Leses fra `challenges.json`. De med koordinater ligger på sitt faste sted. De andre havner et tilfeldig sted langs en gate eller sti, maks 1 km utenfor brettet, og aldri på vann.
 - **Busstopp:** Alle 64 navnene i Ark 1, med koordinater fra Enturs stoppregister.
-  - Skrivefeil er rettet på kartet, for eksempel «Gamke Kongevei» til «Gamle Kongevei» og «Tegleverkskrysset» til «Teglverkskrysset».
-  - «Samfundet» er plassert på stoppet Studentersamfundet.
-  - «Moholt» er plassert på stoppet Moholt studentby.
+  - Skrivefeil er rettet på kartet, for eksempel «Gamke Kongevei» til «Gamle Kongevei».
+  - «Samfundet» er plassert på stoppet Studentersamfundet, og «Moholt» på Moholt studentby.
 - **Gater, stier og vann:** OpenStreetMap, hentet 25.09.2026.
 - **Bakgrunnskart:** Kartverket (topografisk gråtone).
 
 ## Kjent å vite
 
-- Endringer i challenges eller busstopp krever at dataene bygges inn i `index.html` på nytt. Det gjøres ikke automatisk fra Word- eller Excel-filen.
-- Poengtavla teller antall klarte challenges, ikke coins. Coins føres fortsatt i Excel (Ark 1).
-- Laget, aktiveringen og om en bonuschallenge er trukket, lagres bare på telefonen og sendes ikke med når dere deler status.
-- Begge telefoner på samme lag har hver sin aktivering. Bruk helst én telefon per lag til å aktivere.
+- Endringer i busstoppene krever at `data.js` bygges på nytt. Challengene endres i Excel-arket, se «Endre challenges».
+- Posisjon og varsler i selve siden fungerer bare mens siden er åpen. Varsler på låst telefon går via ntfy.
+- Reglene sjekkes på telefonene, ikke på en server. Det passer for en vennegjeng, men hindrer ikke juks fra noen som vil jukse.
+- Varslene sendes gjennom den åpne tjenesten ntfy.sh. De inneholder bare spilltekst, som «Rød tok Solsiden fra dere».
 
 ## Kreditering
 
-Kart © [Kartverket](https://www.kartverket.no/). Gate- og vanndata © [OpenStreetMap](https://www.openstreetmap.org/copyright)-bidragsytere (ODbL). Kartvisning med [Leaflet](https://leafletjs.com/). Stoppkoordinater fra [Entur](https://entur.no/).
+Kart © [Kartverket](https://www.kartverket.no/). Gate- og vanndata © [OpenStreetMap](https://www.openstreetmap.org/copyright)-bidragsytere (ODbL). Kartvisning med [Leaflet](https://leafletjs.com/). Stoppkoordinater fra [Entur](https://entur.no/). Synk med [Firebase](https://firebase.google.com/), varsler med [ntfy](https://ntfy.sh/).
 
 Et fanprosjekt for en vennegjeng, inspirert av *Jet Lag: The Game*. Ikke tilknyttet serien.
