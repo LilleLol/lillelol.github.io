@@ -1,0 +1,844 @@
+[
+ {
+  "name": "Ringve skole",
+  "lat": 63.449694,
+  "lon": 10.445356,
+  "ids": [
+   "NSR:StopPlace:41725"
+  ]
+ },
+ {
+  "name": "Lade gård",
+  "lat": 63.447622,
+  "lon": 10.440056,
+  "ids": [
+   "NSR:StopPlace:42676"
+  ]
+ },
+ {
+  "name": "Østmarkveien",
+  "lat": 63.449833,
+  "lon": 10.450027,
+  "ids": [
+   "NSR:StopPlace:42526"
+  ]
+ },
+ {
+  "name": "Krutthusbakken",
+  "lat": 63.447786,
+  "lon": 10.432837,
+  "ids": [
+   "NSR:StopPlace:43355"
+  ]
+ },
+ {
+  "name": "Ringve museum",
+  "lat": 63.449418,
+  "lon": 10.456604,
+  "ids": [
+   "NSR:StopPlace:41724"
+  ]
+ },
+ {
+  "name": "Ladehammeren",
+  "lat": 63.446036,
+  "lon": 10.426534,
+  "ids": [
+   "NSR:StopPlace:42682"
+  ]
+ },
+ {
+  "name": "Olav Engelbrektssons allé",
+  "lat": 63.446997,
+  "lon": 10.457474,
+  "ids": [
+   "NSR:StopPlace:43450"
+  ]
+ },
+ {
+  "name": "Ladejarlen vgs",
+  "lat": 63.445055,
+  "lon": 10.423898,
+  "ids": [
+   "NSR:StopPlace:42684"
+  ]
+ },
+ {
+  "name": "Jørgen B. Lysholms vei",
+  "lat": 63.444162,
+  "lon": 10.458318,
+  "ids": [
+   "NSR:StopPlace:43098"
+  ]
+ },
+ {
+  "name": "Strandveikaia",
+  "lat": 63.442802,
+  "lon": 10.427125,
+  "ids": [
+   "NSR:StopPlace:42615"
+  ]
+ },
+ {
+  "name": "Lade allé",
+  "lat": 63.441785,
+  "lon": 10.46381,
+  "ids": [
+   "NSR:StopPlace:42673"
+  ]
+ },
+ {
+  "name": "Leangenbukta",
+  "lat": 63.440364,
+  "lon": 10.464911,
+  "ids": [
+   "NSR:StopPlace:4048"
+  ]
+ },
+ {
+  "name": "Dora",
+  "lat": 63.438589,
+  "lon": 10.421238,
+  "ids": [
+   "NSR:StopPlace:43469"
+  ]
+ },
+ {
+  "name": "Losgata",
+  "lat": 63.437948,
+  "lon": 10.417375,
+  "ids": [
+   "NSR:StopPlace:42926"
+  ]
+ },
+ {
+  "name": "Dyre Halses gate",
+  "lat": 63.436977,
+  "lon": 10.414191,
+  "ids": [
+   "NSR:StopPlace:60253"
+  ]
+ },
+ {
+  "name": "Buran",
+  "lat": 63.436397,
+  "lon": 10.425047,
+  "ids": [
+   "NSR:StopPlace:60447"
+  ]
+ },
+ {
+  "name": "Rønningsbakken",
+  "lat": 63.437254,
+  "lon": 10.438122,
+  "ids": [
+   "NSR:StopPlace:41890"
+  ]
+ },
+ {
+  "name": "Dalen Hageby",
+  "lat": 63.437369,
+  "lon": 10.449015,
+  "ids": [
+   "NSR:StopPlace:43418"
+  ]
+ },
+ {
+  "name": "Strindheim",
+  "lat": 63.435085,
+  "lon": 10.457026,
+  "ids": [
+   "NSR:StopPlace:42625"
+  ]
+ },
+ {
+  "name": "Strindheim skole",
+  "lat": 63.432998,
+  "lon": 10.455945,
+  "ids": [
+   "NSR:StopPlace:42633"
+  ]
+ },
+ {
+  "name": "Brian Smiths gate",
+  "lat": 63.434554,
+  "lon": 10.447941,
+  "ids": [
+   "NSR:StopPlace:43896"
+  ]
+ },
+ {
+  "name": "Brattøra",
+  "lat": 63.437579,
+  "lon": 10.407089,
+  "ids": [
+   "NSR:StopPlace:43865"
+  ]
+ },
+ {
+  "name": "Solsiden",
+  "lat": 63.434019,
+  "lon": 10.413246,
+  "ids": [
+   "NSR:StopPlace:43133"
+  ]
+ },
+ {
+  "name": "Gamle Kongevei",
+  "lat": 63.435825,
+  "lon": 10.430271,
+  "ids": [
+   "NSR:StopPlace:63547"
+  ]
+ },
+ {
+  "name": "Strindheim Hageby",
+  "lat": 63.429408,
+  "lon": 10.454396,
+  "ids": [
+   "NSR:StopPlace:42630"
+  ]
+ },
+ {
+  "name": "Bromstadvegen",
+  "lat": 63.430239,
+  "lon": 10.452537,
+  "ids": [
+   "NSR:StopPlace:43900"
+  ]
+ },
+ {
+  "name": "Persaunet leir",
+  "lat": 63.431544,
+  "lon": 10.441777,
+  "ids": [
+   "NSR:StopPlace:43687"
+  ]
+ },
+ {
+  "name": "Bromstadsvingen",
+  "lat": 63.427456,
+  "lon": 10.459367,
+  "ids": [
+   "NSR:StopPlace:43899"
+  ]
+ },
+ {
+  "name": "Trondheim S",
+  "lat": 63.436279,
+  "lon": 10.399123,
+  "ids": [
+   "NSR:StopPlace:59977"
+  ]
+ },
+ {
+  "name": "Bakkegata",
+  "lat": 63.43234,
+  "lon": 10.407248,
+  "ids": [
+   "NSR:StopPlace:43577"
+  ]
+ },
+ {
+  "name": "Weidemannsveien",
+  "lat": 63.433379,
+  "lon": 10.427297,
+  "ids": [
+   "NSR:StopPlace:42404"
+  ]
+ },
+ {
+  "name": "Clara Holsts veg",
+  "lat": 63.428894,
+  "lon": 10.435643,
+  "ids": [
+   "NSR:StopPlace:44034"
+  ]
+ },
+ {
+  "name": "Solvollvegen",
+  "lat": 63.42534,
+  "lon": 10.458037,
+  "ids": [
+   "NSR:StopPlace:43141"
+  ]
+ },
+ {
+  "name": "Brøsetflata",
+  "lat": 63.423561,
+  "lon": 10.454801,
+  "ids": [
+   "NSR:StopPlace:43931"
+  ]
+ },
+ {
+  "name": "Gyldenløves gate",
+  "lat": 63.430499,
+  "lon": 10.419608,
+  "ids": [
+   "NSR:StopPlace:42284"
+  ]
+ },
+ {
+  "name": "Tyholt",
+  "lat": 63.427688,
+  "lon": 10.432813,
+  "ids": [
+   "NSR:StopPlace:41875"
+  ]
+ },
+ {
+  "name": "Olav Tryggvasons gate / Søndre gate",
+  "lat": 63.433587,
+  "lon": 10.400043,
+  "ids": [
+   "NSR:StopPlace:43460",
+   "NSR:StopPlace:63745"
+  ]
+ },
+ {
+  "name": "Brøset Hageby",
+  "lat": 63.421835,
+  "lon": 10.450025,
+  "ids": [
+   "NSR:StopPlace:43929"
+  ]
+ },
+ {
+  "name": "Cecilie Thoresens veg",
+  "lat": 63.427332,
+  "lon": 10.439499,
+  "ids": [
+   "NSR:StopPlace:44015"
+  ]
+ },
+ {
+  "name": "Valentinlyst",
+  "lat": 63.424583,
+  "lon": 10.440496,
+  "ids": [
+   "NSR:StopPlace:42004"
+  ]
+ },
+ {
+  "name": "Teglverkskrysset",
+  "lat": 63.41831,
+  "lon": 10.448116,
+  "ids": [
+   "NSR:StopPlace:42992"
+  ]
+ },
+ {
+  "name": "Festningsgata",
+  "lat": 63.427882,
+  "lon": 10.416342,
+  "ids": [
+   "NSR:StopPlace:43777"
+  ]
+ },
+ {
+  "name": "Prinsens gate / Kongens gate",
+  "lat": 63.430819,
+  "lon": 10.391575,
+  "ids": [
+   "NSR:StopPlace:41613",
+   "NSR:StopPlace:43292"
+  ]
+ },
+ {
+  "name": "Henrik Ourens veg",
+  "lat": 63.41556,
+  "lon": 10.445817,
+  "ids": [
+   "NSR:StopPlace:41635"
+  ]
+ },
+ {
+  "name": "Magnus Berrføtts veg",
+  "lat": 63.421314,
+  "lon": 10.438533,
+  "ids": [
+   "NSR:StopPlace:42400"
+  ]
+ },
+ {
+  "name": "Strinda kirke",
+  "lat": 63.412874,
+  "lon": 10.444911,
+  "ids": [
+   "NSR:StopPlace:42620"
+  ]
+ },
+ {
+  "name": "Ankers gate",
+  "lat": 63.42486,
+  "lon": 10.416755,
+  "ids": [
+   "NSR:StopPlace:43478"
+  ]
+ },
+ {
+  "name": "Strinda vgs",
+  "lat": 63.422072,
+  "lon": 10.427544,
+  "ids": [
+   "NSR:StopPlace:42623"
+  ]
+ },
+ {
+  "name": "Moholt Storsenter",
+  "lat": 63.4102,
+  "lon": 10.440485,
+  "ids": [
+   "NSR:StopPlace:42738"
+  ]
+ },
+ {
+  "name": "Nidarosdomen",
+  "lat": 63.426015,
+  "lon": 10.393437,
+  "ids": [
+   "NSR:StopPlace:41609"
+  ]
+ },
+ {
+  "name": "Sigurd Jorsalfars veg",
+  "lat": 63.419254,
+  "lon": 10.43597,
+  "ids": [
+   "NSR:StopPlace:42093"
+  ]
+ },
+ {
+  "name": "Jonsvannsveien",
+  "lat": 63.42266,
+  "lon": 10.41332,
+  "ids": [
+   "NSR:StopPlace:43081"
+  ]
+ },
+ {
+  "name": "Voll studentby",
+  "lat": 63.409392,
+  "lon": 10.44429,
+  "ids": [
+   "NSR:StopPlace:42282"
+  ]
+ },
+ {
+  "name": "Moholt",
+  "lat": 63.411708,
+  "lon": 10.43415,
+  "ids": [
+   "NSR:StopPlace:42743"
+  ]
+ },
+ {
+  "name": "Samfundet",
+  "lat": 63.422568,
+  "lon": 10.394852,
+  "ids": [
+   "NSR:StopPlace:42660"
+  ]
+ },
+ {
+  "name": "Gløshaugen",
+  "lat": 63.416667,
+  "lon": 10.407621,
+  "ids": [
+   "NSR:StopPlace:44085"
+  ]
+ },
+ {
+  "name": "Berg studentby",
+  "lat": 63.413544,
+  "lon": 10.415485,
+  "ids": [
+   "NSR:StopPlace:43666"
+  ]
+ },
+ {
+  "name": "Østre Berg",
+  "lat": 63.415995,
+  "lon": 10.430308,
+  "ids": [
+   "NSR:StopPlace:42528"
+  ]
+ },
+ {
+  "name": "Høgskoleringen",
+  "lat": 63.420771,
+  "lon": 10.404263,
+  "ids": [
+   "NSR:StopPlace:42029"
+  ]
+ },
+ {
+  "name": "Hesthagen",
+  "lat": 63.416139,
+  "lon": 10.397594,
+  "ids": [
+   "NSR:StopPlace:41620"
+  ]
+ },
+ {
+  "name": "Lerkendal",
+  "lat": 63.412489,
+  "lon": 10.399241,
+  "ids": [
+   "NSR:StopPlace:60257"
+  ]
+ },
+ {
+  "name": "Lerkendal gård",
+  "lat": 63.412847,
+  "lon": 10.408835,
+  "ids": [
+   "NSR:StopPlace:42827"
+  ]
+ },
+ {
+  "name": "Haakon VII gate 25",
+  "lat": 63.440208,
+  "lon": 10.460583,
+  "ids": [
+   "NSR:StopPlace:42310"
+  ]
+ },
+ {
+  "name": "Lade idrettsanlegg",
+  "lat": 63.444071,
+  "lon": 10.448982,
+  "ids": [
+   "NSR:StopPlace:42314"
+  ]
+ },
+ {
+  "name": "Ingemann Torps vei",
+  "lat": 63.446165,
+  "lon": 10.442,
+  "ids": [
+   "NSR:StopPlace:42123"
+  ]
+ },
+ {
+  "name": "Ladeveien",
+  "lat": 63.443462,
+  "lon": 10.435156,
+  "ids": [
+   "NSR:StopPlace:42686"
+  ]
+ },
+ {
+  "name": "Anders Buens gate",
+  "lat": 63.43851,
+  "lon": 10.429905,
+  "ids": [
+   "NSR:StopPlace:43468"
+  ]
+ },
+ {
+  "name": "Jakobsli",
+  "lat": 63.410988,
+  "lon": 10.489835,
+  "ids": [
+   "NSR:StopPlace:43028"
+  ]
+ },
+ {
+  "name": "Stokkan",
+  "lat": 63.410936,
+  "lon": 10.483042,
+  "ids": [
+   "NSR:StopPlace:43301"
+  ]
+ },
+ {
+  "name": "Ramstad",
+  "lat": 63.41219,
+  "lon": 10.476104,
+  "ids": [
+   "NSR:StopPlace:41636"
+  ]
+ },
+ {
+  "name": "Granåsen gård",
+  "lat": 63.414124,
+  "lon": 10.471681,
+  "ids": [
+   "NSR:StopPlace:44096"
+  ]
+ },
+ {
+  "name": "Sildråpevegen",
+  "lat": 63.415961,
+  "lon": 10.465204,
+  "ids": [
+   "NSR:StopPlace:42100"
+  ]
+ },
+ {
+  "name": "Angelltrøvegen",
+  "lat": 63.417194,
+  "lon": 10.460924,
+  "ids": [
+   "NSR:StopPlace:43475"
+  ]
+ },
+ {
+  "name": "Hallfred Høyems veg",
+  "lat": 63.41975,
+  "lon": 10.467439,
+  "ids": [
+   "NSR:StopPlace:42354"
+  ]
+ },
+ {
+  "name": "Trondheim fengsel",
+  "lat": 63.421536,
+  "lon": 10.471513,
+  "ids": [
+   "NSR:StopPlace:41811"
+  ]
+ },
+ {
+  "name": "Iskremfabrikken",
+  "lat": 63.423858,
+  "lon": 10.467533,
+  "ids": [
+   "NSR:StopPlace:43023"
+  ]
+ },
+ {
+  "name": "Gartnerhallen",
+  "lat": 63.425201,
+  "lon": 10.464619,
+  "ids": [
+   "NSR:StopPlace:44055"
+  ]
+ },
+ {
+  "name": "Gildheim",
+  "lat": 63.434196,
+  "lon": 10.460996,
+  "ids": [
+   "NSR:StopPlace:44058"
+  ]
+ },
+ {
+  "name": "Leangen",
+  "lat": 63.43167,
+  "lon": 10.47662,
+  "ids": [
+   "NSR:StopPlace:41715"
+  ]
+ },
+ {
+  "name": "Skovgård",
+  "lat": 63.429233,
+  "lon": 10.494601,
+  "ids": [
+   "NSR:StopPlace:42315"
+  ]
+ },
+ {
+  "name": "Jakobslivegen nedre",
+  "lat": 63.428459,
+  "lon": 10.494339,
+  "ids": [
+   "NSR:StopPlace:43031"
+  ]
+ },
+ {
+  "name": "Churchills veg",
+  "lat": 63.429338,
+  "lon": 10.48742,
+  "ids": [
+   "NSR:StopPlace:44026"
+  ]
+ },
+ {
+  "name": "Tunvegen",
+  "lat": 63.424143,
+  "lon": 10.484322,
+  "ids": [
+   "NSR:StopPlace:41830"
+  ]
+ },
+ {
+  "name": "Konglevegen",
+  "lat": 63.422936,
+  "lon": 10.490404,
+  "ids": [
+   "NSR:StopPlace:43297"
+  ]
+ },
+ {
+  "name": "Charlottenlund kirke",
+  "lat": 63.421238,
+  "lon": 10.495079,
+  "ids": [
+   "NSR:StopPlace:44022"
+  ]
+ },
+ {
+  "name": "Presthusaunet",
+  "lat": 63.418965,
+  "lon": 10.494875,
+  "ids": [
+   "NSR:StopPlace:41605"
+  ]
+ },
+ {
+  "name": "Jakobsli Idrettsplass",
+  "lat": 63.41554,
+  "lon": 10.493686,
+  "ids": [
+   "NSR:StopPlace:42079"
+  ]
+ },
+ {
+  "name": "Jakobslivegen øvre",
+  "lat": 63.411518,
+  "lon": 10.492654,
+  "ids": [
+   "NSR:StopPlace:43033"
+  ]
+ },
+ {
+  "name": "Stokkhaugen",
+  "lat": 63.41004,
+  "lon": 10.480669,
+  "ids": [
+   "NSR:StopPlace:43308"
+  ]
+ },
+ {
+  "name": "Edvard Bulls veg",
+  "lat": 63.410513,
+  "lon": 10.469977,
+  "ids": [
+   "NSR:StopPlace:42995"
+  ]
+ },
+ {
+  "name": "Høyset",
+  "lat": 63.411953,
+  "lon": 10.463118,
+  "ids": [
+   "NSR:StopPlace:42038"
+  ]
+ },
+ {
+  "name": "Åsvang skole",
+  "lat": 63.411032,
+  "lon": 10.454847,
+  "ids": [
+   "NSR:StopPlace:42494"
+  ]
+ },
+ {
+  "name": "Brundalen sykehjem",
+  "lat": 63.416118,
+  "lon": 10.486096,
+  "ids": [
+   "NSR:StopPlace:43918"
+  ]
+ },
+ {
+  "name": "Brundalen",
+  "lat": 63.417689,
+  "lon": 10.485541,
+  "ids": [
+   "NSR:StopPlace:43915"
+  ]
+ },
+ {
+  "name": "Charlottenlund vgs",
+  "lat": 63.419835,
+  "lon": 10.484824,
+  "ids": [
+   "NSR:StopPlace:43916"
+  ]
+ },
+ {
+  "name": "Othilienborg",
+  "lat": 63.406975,
+  "lon": 10.442875,
+  "ids": [
+   "NSR:StopPlace:43654"
+  ]
+ },
+ {
+  "name": "K.O. Thornæs' veg",
+  "lat": 63.406689,
+  "lon": 10.437567,
+  "ids": [
+   "NSR:StopPlace:43103"
+  ]
+ },
+ {
+  "name": "Einar Øfstis veg",
+  "lat": 63.405073,
+  "lon": 10.433141,
+  "ids": [
+   "NSR:StopPlace:43596"
+  ]
+ },
+ {
+  "name": "Tors veg",
+  "lat": 63.404835,
+  "lon": 10.427112,
+  "ids": [
+   "NSR:StopPlace:41672"
+  ]
+ },
+ {
+  "name": "Nardokrysset",
+  "lat": 63.40669,
+  "lon": 10.424068,
+  "ids": [
+   "NSR:StopPlace:43004"
+  ]
+ },
+ {
+  "name": "Fiolsvingen",
+  "lat": 63.409164,
+  "lon": 10.420363,
+  "ids": [
+   "NSR:StopPlace:43718"
+  ]
+ },
+ {
+  "name": "Dybdahls veg",
+  "lat": 63.412856,
+  "lon": 10.414355,
+  "ids": [
+   "NSR:StopPlace:43507"
+  ]
+ },
+ {
+  "name": "Kristine Bonnevies veg",
+  "lat": 63.428216,
+  "lon": 10.444217,
+  "ids": [
+   "NSR:StopPlace:64603"
+  ]
+ },
+ {
+  "name": "Tyholtveien",
+  "lat": 63.42678,
+  "lon": 10.441976,
+  "ids": [
+   "NSR:StopPlace:41882"
+  ]
+ },
+ {
+  "name": "Bjarne Ness' veg",
+  "lat": 63.403824,
+  "lon": 10.429692,
+  "ids": [
+   "NSR:StopPlace:43736"
+  ]
+ }
+]

@@ -134,11 +134,43 @@
     const s = POOL.substr(i * 6, 6);
     return [63.39 + parseInt(s.slice(0, 3), 36) / 1e5, 10.35 + parseInt(s.slice(3), 36) / 1e5];
   }
+  // En tilfeldig challenge havner høyst «verdi × 10 meter» fra et busstopp. Verdien regnes om
+  // til coins: Van = coins, Stjel = prosent, Mult = økningen i prosent, CYS = n × 3 (X ≈ 3).
+  // Minst 100 m, så det alltid finnes steder å velge mellom.
+  function spawnRadius(c) {
+    const v = parseFloat(c.val);
+    const coins = c.type === 'Van' ? v : c.type === 'Stjel' ? v : c.type === 'Mult' ? (v - 1) * 100 : c.cys * 3;
+    return Math.max(100, Math.round(coins * 10));
+  }
+  let NEAR = null;
+  const CAND = {};
+  // Stedene i lista som ligger innenfor r meter fra nærmeste busstopp.
+  function candidates(r) {
+    if (!NEAR) {
+      const kx = 111320 * Math.cos(63.43 * Math.PI / 180), ky = 110574;
+      const st = DATA.stops.map(s => [s.lat * ky, s.lon * kx]);
+      NEAR = new Float32Array(POOLN);
+      for (let i = 0; i < POOLN; i++) {
+        const [la, lo] = poolAt(i), y = la * ky, x = lo * kx;
+        let best = Infinity;
+        for (const [sy, sx] of st) { const d = (y - sy) ** 2 + (x - sx) ** 2; if (d < best) best = d; }
+        NEAR[i] = Math.sqrt(best);
+      }
+    }
+    if (!CAND[r]) {
+      const list = [];
+      for (let i = 0; i < POOLN; i++) if (NEAR[i] <= r) list.push(i);
+      CAND[r] = list.length ? list : Array.from({ length: POOLN }, (_, i) => i);
+    }
+    return CAND[r];
+  }
   function card(seed, i, cache) {
     const r = Math.floor(i / IDS.length);
     if (!cache[r]) cache[r] = shuffle(IDS, rng(`${seed}|kortstokk|${r}`));
     const c = CH[cache[r][i % IDS.length]];
-    const [lat, lon] = c.loc || poolAt(Math.floor(rng(`${seed}|sted|${i}`)() * POOLN));
+    let lat, lon;
+    if (c.loc) [lat, lon] = c.loc;
+    else { const list = candidates(spawnRadius(c)); [lat, lon] = poolAt(list[Math.floor(rng(`${seed}|sted|${i}`)() * list.length)]); }
     return { uid: i, n: c.n, c, lat, lon, fixed: !!c.loc };
   }
   // Bonuschallenge for en stedsbundet challenge: fast ut fra seed + kort, lik for begge lag.
@@ -362,7 +394,9 @@
   }
 
   return {
-    START_BOARD, MAX_BOARD, ADD_PER_DONE, MAX_LEAD, TEAM, other, DATA,
+    START_BOARD, MAX_BOARD, ADD_PER_DONE, MAX_LEAD, TEAM, other, DATA, spawnRadius,
+    // Endres når kartet eller måten stedene trekkes på endres. Et rom husker versjonen det ble laget med.
+    MAP_VERSION: (DATA.version || 'v1') + '-r2',
     setChallenges, parseChallenges, toRows, challenges: () => IDS.map(n => CH[n]),
     rng, prize, boostable, bonusFor, initState, apply, reduce, undoable, describe,
     find, isBoosted, effective, owner, score, result, placeRange,

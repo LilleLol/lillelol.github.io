@@ -34,7 +34,8 @@ Telefonen husker rommet, så du kommer rett inn igjen når du åpner siden på n
 - **Vi feilet:** Hvert lag får bare **ett forsøk** per challenge. Den blir liggende for det andre laget.
   - For **Van og CYS** øker premien med 50 %. **Stjel og Mult øker ikke.**
   - Feiler begge lag, byttes challengen ut.
-- **Bonuschallenge:** Er en aktivert stedsbundet challenge (gul nål) umulig å gjennomføre på stedet, trykker dere «Trekk bonuschallenge» og gjør den i stedet, for ny pris.
+- **Faste steder vises ikke:** Challenges med koordinater i arket ligger alltid på sitt faste sted, men på kartet ser de ut som alle andre. Det er ingen merking som viser hvilke som er stedsbundne.
+- **Bonuschallenge:** Er en aktivert stedsbundet challenge umulig å gjennomføre på stedet, trykker dere «Trekk bonuschallenge» og gjør den i stedet, for ny pris. Knappen vises bare på kortet til stedsbundne challenges, etter aktivering.
 
 ### Busstopp
 
@@ -43,6 +44,7 @@ Telefonen husker rommet, så du kommer rett inn igjen når du åpner siden på n
 - For å ta et stopp må dere legge nok til å lede med minst 1. Coins dere har lagt der fra før, teller med.
 - Man kan **ikke lede med mer enn 8** coins.
 - Man må være på stoppet for å legge coins. Appen sier fra hvis dere er langt unna, men stopper dere ikke.
+- **Bussrutene** er tegnet som linjer langs veiene mellom stoppene. Eier et lag begge endene av en strekning, blir den tykk og får lagets farge.
 
 ### Annet
 
@@ -120,7 +122,8 @@ Nøklene i `config.js` er ikke hemmelige. Tilgangen styres av reglene: bare den 
 | `challenges.json` | Challengene spillet bruker. Lages fra Excel-arket. |
 | `Challenges.xlsx` | Arket dere redigerer challengene i. |
 | `eksport.html` | Gjør Excel-arket om til `challenges.json`. |
-| `data.js` | Busstopp, brettets omriss og de tillatte tilfeldige stedene. |
+| `data.js` | Busstopp, bussruter, brettets omriss og de tillatte tilfeldige stedene. Lages av verktøyet under. |
+| `verktoy/stopp.json`, `verktoy/bygg_kart.py` | Busstoppene, og verktøyet som bygger `data.js` fra dem. |
 | `config.js` | Adressen til siden og Firebase-nøklene. |
 | `firebase-rules.json` | Reglene som limes inn i Firebase. |
 | `manifest.webmanifest`, `sw.js`, `icon-*.png` | Gjør at siden kan legges på hjemskjermen. |
@@ -136,16 +139,21 @@ Nøklene i `config.js` er ikke hemmelige. Tilgangen styres av reglene: bare den 
 
 ## Kart og data
 
-- **Challenges:** Leses fra `challenges.json`. De med koordinater ligger på sitt faste sted. De andre havner et tilfeldig sted langs en gate eller sti, maks 1 km utenfor brettet, og aldri på vann.
-- **Busstopp:** Alle 64 navnene i Ark 1, med koordinater fra Enturs stoppregister.
+- **Challenges:** Leses fra `challenges.json`. De med koordinater ligger på sitt faste sted. De andre havner et tilfeldig sted langs en gate eller sti:
+  - høyst **verdi × 10 meter** fra nærmeste busstopp. Verdien regnes om til coins: Van = coins (30 → 300 m), Stjel = prosent (25 % → 250 m), Mult = økningen i prosent (1.25x → 250 m, 2x → 1 km), CYS = n × 3 (5×X → 150 m). Minst 100 m.
+  - maks 1 km utenfor brettet, **aldri øst for linje 14** (utenfor buen Voll–Jakobsli–Charlottenlund–Leangen) og aldri på vann.
+- **Busstopp:** Navnene i Ark 1, med koordinater fra Enturs stoppregister, pluss resten av stoppene på linje 2 langs Lade, linje 10 til Jakobsli, linje 14 fra Voll til Strindheim og linje 22 fra Strinda vgs til Othilienborg.
+  - «Prinsens gate / Kongens gate» og «Olav Tryggvasons gate / Søndre gate» er slått sammen til ett stopp hver.
   - Skrivefeil er rettet på kartet, for eksempel «Gamke Kongevei» til «Gamle Kongevei».
   - «Samfundet» er plassert på stoppet Studentersamfundet, og «Moholt» på Moholt studentby.
-- **Gater, stier og vann:** OpenStreetMap, hentet 25.09.2026.
+- **Bussruter:** Fra Entur. En strekning er der en bybuss (linje 1–99) kjører fra ett stopp på brettet til det neste.
+- **Gater, stier og vann:** OpenStreetMap.
 - **Bakgrunnskart:** Kartverket (topografisk gråtone).
 
 ## Kjent å vite
 
-- Endringer i busstoppene krever at `data.js` bygges på nytt. Challengene endres i Excel-arket, se «Endre challenges».
+- **Endre busstopp:** Rediger `verktoy/stopp.json` og kjør `python verktoy/bygg_kart.py`. Verktøyet henter bussruter, gater og vann på nytt og skriver `data.js`. Challengene endres i Excel-arket, se «Endre challenges».
+- **Nytt kart betyr nytt rom:** Rom som ble laget før kartet ble endret, kan få stopp og steder som ikke stemmer. Appen sier fra når du går inn i et slikt rom.
 - Posisjon og varsler i selve siden fungerer bare mens siden er åpen. Varsler på låst telefon går via ntfy.
 - Reglene sjekkes på telefonene, ikke på en server. Det passer for en vennegjeng, men hindrer ikke juks fra noen som vil jukse.
 - Varslene sendes gjennom den åpne tjenesten ntfy.sh. De inneholder bare spilltekst, som «Rød tok Solsiden fra dere».

@@ -159,6 +159,9 @@ const Replay = (() => {
     if (st.layer) map.removeLayer(st.layer);
     st.layer = L.layerGroup().addTo(map);
     st.t = 0; st.frame = 0; st.done = false;
+    // Bussrutene: en strekning får lagets farge når laget eier begge endene.
+    st.owners = Engine.DATA.stops.map(() => null);
+    st.routes = (Engine.DATA.edges || []).map(e => ({ e, line: L.polyline(e.path, { className: 'route', weight: 4, interactive: false }).addTo(st.layer) }));
     st.stops = Engine.DATA.stops.map(s => L.circleMarker([s.lat, s.lon], { radius: 5, weight: 2.5, className: 'stop-dot rp-stop', fillOpacity: 1, interactive: false }).addTo(st.layer));
     m.movers.forEach(mv => {
       mv.i = 0; mv.shown = false;
@@ -226,6 +229,13 @@ const Replay = (() => {
     if (i.kind === 'place') {
       const el2 = st.stops[i.stop].getElement();
       if (el2) { el2.classList.toggle('own-B', f.owner === 'B'); el2.classList.toggle('own-R', f.owner === 'R'); }
+      st.owners[i.stop] = f.owner;
+      st.routes.forEach(({ e, line }) => {
+        if (e.a !== i.stop && e.b !== i.stop) return;
+        const o = st.owners[e.a] && st.owners[e.a] === st.owners[e.b] ? st.owners[e.a] : null, el3 = line.getElement();
+        if (el3) { el3.classList.toggle('own-B', o === 'B'); el3.classList.toggle('own-R', o === 'R'); }
+        line.setStyle({ weight: o ? 7 : 4 });
+      });
       if (!quick) { pop(f.loc, f.team, `<i class="coin"></i>+${i.amount}`); pop(f.loc, f.team, '', 'ring'); }
     } else if (i.kind === 'done' && f.loc) {
       badge(f.loc, f.team, 'ok');

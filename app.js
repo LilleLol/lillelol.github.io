@@ -149,7 +149,7 @@ async function createRoom(startCoins, seed) {
     const config = {
       seed: seed.trim().toLowerCase().slice(0, 60) || randomCode(8).toLowerCase(), startCoins,
       secret: randomCode(12).toLowerCase(), createdAt: firebase.database.ServerValue.TIMESTAMP,
-      challenges: JSON.stringify(Engine.toRows(siteChallenges)),
+      challenges: JSON.stringify(Engine.toRows(siteChallenges)), map: Engine.MAP_VERSION,
     };
     // Lykkes bare hvis koden er ledig.
     const res = await fb.db.ref(`rooms/${code}/config`).transaction(cur => (cur === null ? config : undefined), undefined, false);
@@ -167,6 +167,9 @@ async function enterRoom(code) {
   // challenges.json endres senere. Eldre rom uten egen liste bruker sidens.
   const own = c.challenges ? Engine.parseChallenges(JSON.parse(c.challenges)).list : [];
   Engine.setChallenges(own.length ? own : siteChallenges);
+  // Kartet (busstopp og steder) ligger i siden, ikke i rommet. Er det byttet siden rommet ble laget,
+  // kan stoppene og stedene ha flyttet seg.
+  if (c.map !== Engine.MAP_VERSION) setTimeout(() => toast('Kartet er oppdatert siden dette rommet ble laget. Lag et nytt rom, ellers kan stopp og steder være feil.'), 1500);
   room = { code, seed: c.seed, startCoins: c.startCoins, secret: c.secret, ntfy: `jl-${c.secret}-${saved.team.toLowerCase()}` };
   fb.ref = ref; fb.buffer = {}; fb.live = false; events = [];
   Object.entries((await ref.child('events').get()).val() || {}).forEach(([k, v]) => { if (v) addEvent(+k, v); });
@@ -286,7 +289,7 @@ function announce(entry, mine) {
 
 // ================= Kart =================
 let map, challengeLayer, playerLayer, meMarker, meCircle, myPos = null, watchId = null;
-let markers = {}, stopMarkers = [], selected = null, newUids = new Set();
+let markers = {}, stopMarkers = [], routeLines = [], selected = null, newUids = new Set();
 
 function initMap() {
   const buf = Engine.DATA.buffer;
@@ -302,6 +305,10 @@ function initMap() {
   L.polygon([world, buf], { className: 'outside', interactive: false, fillOpacity: 0.45, stroke: false }).addTo(map);
   L.polygon(buf, { className: 'buffer-line', interactive: false, weight: 3, dashArray: '12 8', fill: false }).addTo(map);
   L.polygon(Engine.DATA.hull, { className: 'hull-line', interactive: false, weight: 2, dashArray: '2 6', fill: false }).addTo(map);
+
+  // Bussrutene mellom stoppene. En strekning får lagets farge når laget eier begge endene.
+  const routes = L.layerGroup().addTo(map);
+  routeLines = (Engine.DATA.edges || []).map(e => L.polyline(e.path, { className: 'route', weight: 5, interactive: false }).addTo(routes));
 
   const stops = L.layerGroup().addTo(map);
   stopMarkers = Engine.DATA.stops.map((st, i) => {
@@ -320,13 +327,16 @@ function initMap() {
 }
 
 function renderStops() {
-  S.stops.forEach((st, i) => {
-    const o = Engine.owner(st), el = stopMarkers[i].getElement();
+  const owners = S.stops.map(Engine.owner);
+  owners.forEach((o, i) => {
+    const el = stopMarkers[i].getElement();
     if (el) { el.classList.toggle('own-B', o === 'B'); el.classList.toggle('own-R', o === 'R'); el.classList.toggle('is-selected', selected === 's' + i); }
-    const tot = st.B || st.R ? `<span class="st"><i class="B">${st.B}</i><i class="R">${st.R}</i></span>` : '';
-    stopMarkers[i].setTooltipContent(esc(Engine.DATA.stops[i].name) + tot);
-    const tip = stopMarkers[i].getTooltip() && stopMarkers[i].getTooltip().getElement();
-    if (tip) tip.classList.toggle('has-coins', !!tot);
+    stopMarkers[i].setTooltipContent(esc(Engine.DATA.stops[i].name));
+  });
+  (Engine.DATA.edges || []).forEach((e, k) => {
+    const o = owners[e.a] && owners[e.a] === owners[e.b] ? owners[e.a] : null, el = routeLines[k].getElement();
+    if (el) { el.classList.toggle('own-B', o === 'B'); el.classList.toggle('own-R', o === 'R'); }
+    routeLines[k].setStyle({ weight: o ? 8 : 5 });
   });
 }
 
@@ -337,7 +347,7 @@ function markerHtml(inst) {
     active ? 'is-active' : '', triedByMe(inst) ? 'is-tried' : ''].join(' ');
   const failDots = fails.length ? `<span class="cm-fails">${fails.map(t => `<i class="dot ${t}" title="${TEAM[t]} feilet"></i>`).join('')}</span>` : '';
   const up = boostedShown(inst) ? '<span class="cm-up">+50%</span>' : '';
-  return `<div class="${cls}">${active ? '<span class="cm-flag">Aktiv</span>' : ''}<div class="cm-box">${prizeHtml(c, boostedShown(inst), revealed(inst))}${up}${failDots}${inst.fixed ? `<span class="cm-pin">${icon('pin')}</span>` : ''}</div><div class="cm-tail"></div></div>`;
+  return `<div class="${cls}">${active ? '<span class="cm-flag">Aktiv</span>' : ''}<div class="cm-box">${prizeHtml(c, boostedShown(inst), revealed(inst))}${up}${failDots}</div><div class="cm-tail"></div></div>`;
 }
 function renderChallenges() {
   if (!S || !map) return;
@@ -473,8 +483,7 @@ function openDetail(uid, opts = {}) {
   const d = myPos ? fmtDist(dist(myPos, [inst.lat, inst.lon])) + ' unna' : null;
   const where = `
         <div class="where">
-          <span class="pill">${icon(inst.fixed ? 'pin' : 'dice')}${inst.fixed ? 'Fast sted' : 'Tilfeldig sted'}</span>
-          ${d ? `<span class="pill">${esc(d)}</span>` : ''}
+          ${d ?`<span class="pill">${esc(d)}</span>` : ''}
           <a class="pill" href="${gmaps(inst.lat, inst.lon)}" target="_blank" rel="noopener">${icon('nav')}Veibeskrivelse</a>
         </div>
         ${fails.length ? `<div class="note">${fails.map(x => TEAM[x]).join(' og ')} har feilet denne.${boosted ? ' Premien er økt med 50 %.' : ''}</div>` : ''}`;
@@ -596,7 +605,7 @@ function openList() {
   act.sort((a, b) => (S.active[t] === b.uid) - (S.active[t] === a.uid) || (myPos ? a.d - b.d : a.uid - b.uid));
   const html = `<div class="label">${act.length} av ${Engine.MAX_BOARD} challenges på kartet${myPos ? ' · nærmest først' : ''}</div>
     <div class="list">${act.map(a => {
-      const tags = [TYPE_NAME[a.c.type], a.fixed ? 'Fast sted' : 'Tilfeldig sted'];
+      const tags = [TYPE_NAME[a.c.type]];
       if (boostedShown(a)) tags.push('+50 %');
       if (triedByMe(a)) tags.push('Prøvd');
       const on = S.active[t] === a.uid;
@@ -698,7 +707,7 @@ function openMenu() {
         <li>Feiler begge lag, byttes challengen ut.</li>
         <li><b>Busstopp:</b> legg coins for å ta et stopp. Laget med flest coins der eier det, og man kan ikke lede med mer enn ${Engine.MAX_LEAD}.</li>
         <li>Laget med <b>flest busstopp</b> vinner. Står det likt, vinner laget med flest coins igjen.</li>
-        <li>Challenges med <b>gul nål</b> har et fast sted. Er de umulige på stedet, trekk en bonuschallenge på kortet.</li>
+        <li>Er en aktivert challenge umulig å gjennomføre på grunn av forholdene på stedet, kan dere trekke en <b>bonuschallenge</b> når knappen vises på kortet.</li>
       </ul>
     </div>
     <div class="panel">
