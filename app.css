@@ -170,11 +170,6 @@ h1, h2, h3, p { margin: 0; }
   transition: transform .12s;
 }
 .cm-box .coin { font-size: 15px; }
-.cm-pin {
-  position: absolute; top: -9px; right: -9px; width: 20px; height: 20px; border-radius: 50%;
-  background: var(--yellow); border: 2.5px solid var(--ink); display: flex; align-items: center; justify-content: center; color: var(--ink);
-}
-.cm-pin .icon { width: 11px; height: 11px; stroke-width: 3.2; }
 .cm-fails { display: flex; gap: 2px; margin-left: 2px; }
 .cm-fails .dot { width: 11px; height: 11px; border-width: 2px; border-color: var(--paper); }
 .cm-tail { width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-top: 11px solid var(--ink); margin-top: -1px; }
@@ -399,12 +394,10 @@ a.btn { text-decoration: none; }
 .stop-dot.own-B { fill: var(--blue); }
 .stop-dot.own-R { fill: var(--red); }
 .stop-dot.is-selected { stroke-width: 6; }
-.stop-label .st { display: inline-flex; margin-left: 5px; border-radius: 4px; overflow: hidden; vertical-align: 1px; }
-.stop-label .st i { font-style: normal; padding: 0 4px; color: #fff; font-size: 12px; line-height: 15px; }
-.stop-label .st .B { background: var(--blue); } .stop-label .st .R { background: var(--red); }
-/* Stopp med coins viser navnet også når kartet er zoomet ut litt. */
-.zoom-lo .stop-label.has-coins { display: block; font-size: 0; padding: 0; border: 0; background: none; }
-.zoom-lo .stop-label.has-coins .st { margin: 0; border: 2px solid var(--ink); }
+/* Bussrutene mellom stoppene */
+.route { fill: none; stroke: var(--ink); stroke-opacity: .32; stroke-linecap: round; stroke-linejoin: round; }
+.route.own-B { stroke: var(--blue); stroke-opacity: .9; }
+.route.own-R { stroke: var(--red); stroke-opacity: .9; }
 .versus { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: var(--line); border-radius: var(--r); overflow: hidden; font-family: var(--display); text-transform: uppercase; }
 .versus > div { display: flex; flex-direction: column; align-items: center; padding: 6px 8px 8px; color: #fff; line-height: 1; opacity: .55; }
 .versus > div + div { border-left: var(--line); }
